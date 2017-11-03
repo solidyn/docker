@@ -16,4 +16,5 @@ USER ec2box
 EXPOSE 8443
 WORKDIR /EC2Box-jetty/jetty
 #TODO: Where does ec2box's data go? probably need a VOLUME statement here.
+# /jetty/keybox/WEB-INF/classes/ec2db/ec2box.h2.db
 ENTRYPOINT ["java", "-Xmx1g", "-jar", "start.jar"]
