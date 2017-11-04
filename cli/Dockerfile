@@ -5,7 +5,7 @@ LABEL maintainer='Ian Martin <imartin@solidyn.com>' license='MIT' name='CLI'\
   vendor='Solidyn Solutions' version='1.0'
 
 # installs AWS, PCF and OpenShift CLI's
-RUN apk -Uuv add groff less python py-pip tar gzip curl && \
+RUN apk -Uuv add groff less python py-pip tar gzip curl postgresql-client mysql-client && \
 	pip install awscli && \
   curl -skL 'https://cli.run.pivotal.io/stable?release=linux64-binary&source=github' | tar -xz && \
   mv cf /bin/cf && \
