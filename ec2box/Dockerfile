@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-ENV version="0.30.03"
+ENV version="0.35.00"
 LABEL maintainer="Ian Martin <imartin@solidyn.com>" license="MIT" vendor="Solidyn Solutions, Inc" \
   repo="https://github.com/solidyn/docker" version="${version}"
 
@@ -15,6 +15,5 @@ RUN apk --no-cache add curl tar gzip && \
 USER ec2box
 EXPOSE 8443
 WORKDIR /EC2Box-jetty/jetty
-#TODO: Where does ec2box's data go? probably need a VOLUME statement here.
-# /jetty/keybox/WEB-INF/classes/ec2db/ec2box.h2.db
+VOLUME ["/EC2Box-jetty/jetty/ec2box/WEB-INF/classes/ec2db"]
 ENTRYPOINT ["java", "-Xmx1g", "-jar", "start.jar"]
