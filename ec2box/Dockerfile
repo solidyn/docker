@@ -1,4 +1,4 @@
-FROM openjdk:8-alpine
+FROM openjdk:8-jre-alpine
 
 ENV version="0.35.00"
 LABEL maintainer="Ian Martin <imartin@solidyn.com>" license="MIT" vendor="Solidyn Solutions, Inc" \
