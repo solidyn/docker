@@ -15,5 +15,4 @@ RUN apk --no-cache add curl tar gzip && \
 USER ec2box
 EXPOSE 8443
 WORKDIR /EC2Box-jetty/jetty
-VOLUME ["/EC2Box-jetty/jetty/ec2box/WEB-INF/classes/ec2db"]
 ENTRYPOINT ["java", "-Xmx1g", "-jar", "start.jar"]
