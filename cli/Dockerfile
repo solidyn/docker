@@ -16,7 +16,8 @@ RUN apk -Uuv add groff less python py-pip tar gzip curl postgresql-client mysql-
 	rm /var/cache/apk/* && \
   addgroup -g 8728 cli && \
   adduser -D -u 8728 -G cli cli && \
-  mkdir -p /data
+  mkdir -p /data && \
+  chown -R cli:root /data
 
 USER cli
 VOLUME ["/data"]
