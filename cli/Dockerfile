@@ -15,7 +15,6 @@ RUN apk -Uuv add groff less python py-pip tar gzip curl postgresql-client mysql-
   curl -skL https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o /usr/bin/jq && \
   chown root:root /usr/bin/jq && \
   chmod 755 /usr/bin/jq && \
-  apk --purge -v del py-pip && \
   rm /var/cache/apk/* && \
   addgroup -g 8728 cli && \
   adduser -D -u 8728 -G cli cli && \
