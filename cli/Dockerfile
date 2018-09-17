@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.8
 
 LABEL maintainer='Ian Martin <imartin@solidyn.com>' license='MIT' name='CLI'\
   description='All the CLIs, all in one place' url='https://github.com/solidyn/docker' \
@@ -6,11 +6,11 @@ LABEL maintainer='Ian Martin <imartin@solidyn.com>' license='MIT' name='CLI'\
 
 # installs AWS, PCF and OpenShift CLI's
 RUN apk -Uuv add groff less python py-pip tar gzip curl postgresql-client mysql-client && \
-  pip install awscli aws-amicleaner && \
+  pip install awscli aws-amicleaner future && \
   curl -skL 'https://cli.run.pivotal.io/stable?release=linux64-binary&source=github' | tar -xz && \
   mv cf /bin/cf && \
   chmod 755 /bin/cf && \
-  curl -skL 'https://github.com/openshift/origin/releases/download/v3.6.1/openshift-origin-client-tools-v3.6.1-008f2d5-linux-64bit.tar.gz' | tar -xz --strip-components=1 && \
+  curl -skL 'https://github.com/openshift/origin/releases/download/v3.10.0/openshift-origin-client-tools-v3.10.0-dd10d17-linux-64bit.tar.gz' | tar -xz --strip-components=1 && \
   mv oc /bin/oc && \
   curl -skL https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o /usr/bin/jq && \
   chown root:root /usr/bin/jq && \
